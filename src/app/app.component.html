@@ -1,0 +1,52 @@
+<div class="clock">
+  <div class="container px-4">
+    <h3>Apply Custom Time</h3>
+
+    <div class="row">
+      <div class="col-md-2">
+        <label for="hours" class="form-label">Hours</label>
+        <select
+          id="hours"
+          [(ngModel)]="custom.hrs"
+          class="form-control"
+          name="fieldStatus"
+        >
+          <option *ngFor="let hour of hoursList" [value]="hour">
+            {{ hour }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="mins" class="form-label">Minutes</label>
+        <select id="mins" [(ngModel)]="custom.mins" class="form-control">
+          <option *ngFor="let min of minsList" [value]="min">
+            {{ min }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row custom-btns">
+      <div class="col-md-3">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button (click)="apply()" class="btn btn-outline-primary btn-sm">
+            Apply
+          </button>
+          <button (click)="reset()" class="btn btn-outline-secondary btn-sm">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-analog-clock
+    [hour]="hour"
+    [minute]="minute"
+    [second]="second"
+  ></app-analog-clock>
+  <app-digital-clock
+    [hour]="hour"
+    [minute]="minute"
+    [second]="second"
+  ></app-digital-clock>
+</div>
